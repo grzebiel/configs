@@ -142,9 +142,9 @@ clla() {
 
 
 #proxy
-export http_proxy="http://10.144.1.10:8080"
-export https_proxy="https://10.144.1.10:8080"
-export ftp_proxy="ftp://10.144.1.10:8080"
+#export http_proxy="http://10.144.1.10:8080"
+#export https_proxy="https://10.144.1.10:8080"
+#export ftp_proxy="ftp://10.144.1.10:8080"
 
 #custom scripts location added to path
 export PATH=~/bin:$PATH
