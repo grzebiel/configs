@@ -1,3 +1,65 @@
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
+
+    " Required:
+    set runtimepath+=/home/grzebiel/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('/home/grzebiel/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'flazz/vim-colorschemes'
+" file system browser
+NeoBundle 'scrooloose/nerdtree'
+" status line for vim
+NeoBundle 'bling/vim-airline'
+" buffer display list (inegrated with airline)
+NeoBundle 'bling/vim-bufferline'
+" autoformat code using externals tools
+NeoBundle 'Chiel92/vim-autoformat'
+" ack (programmers grep) plugin
+NeoBundle 'mileszs/ack.vim'
+" file searcher (not only)
+NeoBundle 'unite.vim'
+" vimproc a luncher
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'linux' : 'make',
+            \     'unix' : 'gmake',
+            \    },
+            \ }
+" unite.vim tags browser
+"NeoBundle 'tsukkee/unite-tag'
+
+" You can specify revision/branch/tag.
+" NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
 " Description: A minimal, but feature rich, example .vimrc. If you are a
@@ -154,6 +216,9 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Map <space>w for :w
+nnoremap <space>w :w<CR>
+
 
 "------------------------------------------------------------
 " cursor line highlingh
@@ -161,53 +226,12 @@ set cursorline
 " cursorline number set
 hi CursorLineNr   term=bold ctermfg=Yellow gui=bold guifg=Yellow
 
-
 runtime! ftplugin/man.vim
-
-"vundle begin
-"------------------------------------------------------------
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'fugitive.vim'
-" file system browser
-Plugin 'The-NERD-tree'
-" status line for vim
-Plugin 'bling/vim-airline'
-" buffer display list (inegrated with airline)
-Plugin 'bling/vim-bufferline'
-" autoformat code using externals tools
-Plugin 'Chiel92/vim-autoformat'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"------------------------------------------------------------
-"vundle end
 
 " rfc syntax
  if expand('%:t') =~? 'rfc\d\+'
       setfiletype rfc
-  endif
+ endif
 
 " color all whitespace but space
 set listchars=tab:>-,trail:~,extends:>,precedes:<
@@ -229,3 +253,32 @@ let $PAGER=''
 
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+
+"Unite config
+"Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+"call unite#custom#source('file_rec/async','sorters','sorter_rank', )
+"replacing unite with ctrl-p
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_prompt='» '
+let g:unite_split_rule = 'botright'
+"use ag instead of grep
+if executable('ag')
+ let g:unite_source_grep_command='ag'
+ let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
+ let g:unite_source_grep_recursive_opt=''
+endif
+nnoremap <silent> <c-p> :Unite -auto-resize file file_mru file_rec/async<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite buffer<cr>
+
+"ack using ag
+"
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
+endif
