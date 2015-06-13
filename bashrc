@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#detect os
+unamestr=`uname`
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -88,6 +91,13 @@ alias .......='cd ../../../../../..; pwd; ls'
 alias cd..='cd ..; pwd'
 alias vman='~/.vim/vimman.sh'
 alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
+
+# if you use MacOS X use mvim in textmode instead of vim
+if [[ "$unamestr" ]];
+then
+    alias vim='mvim -v'
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
