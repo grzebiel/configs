@@ -89,7 +89,6 @@ alias .....='cd ../../../..; pwd; ls'
 alias ......='cd ../../../../..; pwd; ls'
 alias .......='cd ../../../../../..; pwd; ls'
 alias cd..='cd ..; pwd'
-alias vman='~/.vim/vimman.sh'
 alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
 
 # if you use MacOS X use mvim in textmode instead of vim
@@ -127,7 +126,7 @@ fortune -a
 echo -e "\n"
 
 #Display error codes
-EC() { echo -e '\e[1;33m'code $?'\e[m\n'; }
+EC() { printf '\e[1;33mcode %d\e[m\n' $?; }
 trap EC ERR
 
 # cd and ls in one
