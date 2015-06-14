@@ -1,25 +1,19 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
-    endif
 
-    " Required:
-    set runtimepath+=/home/grzebiel/.vim/bundle/neobundle.vim/
+set nocompatible               " Be iMproved
+
+""NeoBundle Scripts-----------------------------
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('/home/grzebiel/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
+"call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
-" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'flazz/vim-colorschemes'
 " file system browser
 NeoBundle 'scrooloose/nerdtree'
 " status line for vim
@@ -42,15 +36,19 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'gmake',
             \    },
             \ }
-" unite.vim tags browser
-"NeoBundle 'tsukkee/unite-tag'
+" shell implementation inside vim
+NeoBundle 'Shougo/vimshell.vim'
 
-" You can specify revision/branch/tag.
-" NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
+"NeoBundle 'Shougo/neosnippet.vim'
+"NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'flazz/vim-colorschemes'
+"" unite.vim tags browser
+""NeoBundle 'tsukkee/unite-tag'
+"
 " Required:
 call neobundle#end()
-
+"
 " Required:
 filetype plugin indent on
 
@@ -71,10 +69,6 @@ NeoBundleCheck
 "
 " These options and commands enable some very useful features in Vim, that
 " no user should have to live without.
-
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -103,12 +97,6 @@ syntax on
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
 set hidden
-
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
 
 " Better command-line completion
 set wildmenu
@@ -170,7 +158,7 @@ set visualbell
 set t_vb=
 
 " Enable use of the mouse for all modes
-set mouse=
+set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -191,7 +179,7 @@ set pastetoggle=<F11>
 "
 " Indentation settings according to personal preference.
 
-" Indentation settings for using 2 spaces instead of tabs.
+" Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
 set shiftwidth=4
 set softtabstop=4
@@ -226,6 +214,7 @@ set cursorline
 " cursorline number set
 hi CursorLineNr   term=bold ctermfg=Yellow gui=bold guifg=Yellow
 
+" vim as man pager required
 runtime! ftplugin/man.vim
 
 " rfc syntax
@@ -233,7 +222,7 @@ runtime! ftplugin/man.vim
       setfiletype rfc
  endif
 
-" color all whitespace but space
+" color all whitespace but non-tailing space
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 
@@ -243,6 +232,8 @@ set t_Co=256
 " airline settings
 let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
+set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
+
 
 " vim autoformat settings
 let g:formatprg_cs="astyle"
@@ -251,10 +242,10 @@ let g:formatprg_args_cs="--indent=spaces=4 --suffix=none --unpad-paren --pad-ope
 let $PAGER=''
 
 
+" ycm configuratioin
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
 
-"Unite config
 "Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
