@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #check git command
 if type git; then
@@ -10,10 +10,10 @@ fi
 
 CONFIGS_REPO_DIR=$HOME/configs
 
-if [ -e $CONFIGS_REPO_DIR ]; then
-    echo "config dir $CONFIGS_REPO_DIR already exists"
-    exit 1;
-fi
+#if [ -e $CONFIGS_REPO_DIR ]; then
+#    echo "config dir $CONFIGS_REPO_DIR already exists"
+#    exit 1;
+#fi
 
 echo "fetching config repo"
 mkdir -p $CONFIGS_REPO_DIR
