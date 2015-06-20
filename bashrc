@@ -65,38 +65,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
-alias lla='ls -lA'
-alias ..='cd ..; pwd; ls'
-alias ...='cd ../..; pwd; ls'
-alias ....='cd ../../..; pwd; ls'
-alias .....='cd ../../../..; pwd; ls'
-alias ......='cd ../../../../..; pwd; ls'
-alias .......='cd ../../../../../..; pwd; ls'
-alias cd..='cd ..; pwd'
-alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
-
-# if you use MacOS X use mvim in textmode instead of vim
-if [[ "$unamestr" ]];
-then
-    alias vim='mvim -v'
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -148,8 +116,6 @@ clla() {
     lla
 }
 
-
-
 #proxy
 #export http_proxy="http://10.144.1.10:8080"
 #export https_proxy="https://10.144.1.10:8080"
@@ -160,10 +126,6 @@ export PATH=~/bin:$PATH
 
 #cd history
 source ~/.adc_func.sh
-
-#rhapsody license
-export LM_LICENSE_FILE=27010@eseelic60.emea.nsn-net.net:27009@eseelic60.emea.nsn-net.net:27014@eseelic60.emea.nsn-net.net:27013@eseelic51.emea.nsn-net.net:27013@eseelic60.emea.nsn-net.net:27009@eseelic51.emea.nsn-net.net:27009@eseelic60.emea.nsn-net.net:27009@beeelic60.china.nsn-net.net
-
 
 #vim as man viewer
 export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \

@@ -28,9 +28,13 @@ function symlinkFile
     echo "symlinking $CONFIGS_REPO_DIR/bashrc to ~/.bashrc"
     ln -s $CONFIGS_REPO_DIR/$1 ~/.$1
 }
-symlinkFile bashrc
-symlinkFile vim
-symlinkFile adc_func.sh
+
+configFiles=( "bashrc" "vimrc" "adc_func.sh" "bash_aliases")
+
+for file in "${configFiles[@]}"
+do
+    symlinkFile "$file"
+done
 
 echo "creating ~/.vim/.cache dir needed by some plugins"
 mkdir -p ~/.vim/.cache
