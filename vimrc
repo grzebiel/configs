@@ -273,3 +273,6 @@ nnoremap <space>s :Unite buffer<cr>
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
 endif
+
+" fzf fuzy finder plugin
+set rtp+=/usr/local/Cellar/fzf/0.10.0
