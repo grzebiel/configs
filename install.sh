@@ -44,3 +44,4 @@ echo "Vim airline:"
 echo "\tfor vim-airline fonts go to: https://github.com/bling/vim-airline"
 echo "\tin case of Mac OS X change terminal font for one of installed"
 echo "\tfor iterm2 there is 2 different fonts for ASCII and NON_ASCII"
+command! FZFMru call fzf#run({ 'source': v:oldfiles, 'sink' : 'e ', 'options' : '-m', })

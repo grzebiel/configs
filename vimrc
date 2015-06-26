@@ -279,7 +279,7 @@ if executable('ag')
  let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
  let g:unite_source_grep_recursive_opt=''
 endif
-nnoremap <silent> <c-p> :Unite -auto-resize file file_mru file_rec/async<cr>
+nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
