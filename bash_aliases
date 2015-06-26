@@ -25,7 +25,7 @@ alias cd..='cd ..; pwd'
 alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
 
 # if you use MacOS X use mvim in textmode instead of vim
-if [[ "$unamestr" ]];
+if [ "`uname`" == "Darvin" ];
 then
     alias vim='mvim -v'
 fi
