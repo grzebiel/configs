@@ -135,4 +135,9 @@ export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 
 #Go environment
 export GOPATH=~/workspace/go/
+
+#fuzzy finder for bash (fzf https://github.com/junegunn/fzf) extension
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#more readable colors of dirs in ls colorized output
+export LS_COLORS=$LS_COLORS:'di=0;35:'
