@@ -43,6 +43,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell.vim'
 
 " autocompletion
+NeoBundle 'vim-scripts/OmniCppComplete'
 "NeoBundle 'Valloric/YouCompleteMe'
 ", {
 "
