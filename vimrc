@@ -43,7 +43,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell.vim'
 
 " autocompletion
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 ", {
 "
 "     \ 'build' : {
@@ -55,6 +55,7 @@ NeoBundle 'Valloric/YouCompleteMe'
 "     \ }
 "NeoBundle 'Shougo/neosnippet.vim'
 "NeoBundle 'Shougo/neosnippet-snippets'
+"vim syntax highlighting based on ctags and auto tags generation
 "Vim git support
 NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'flazz/vim-colorschemes'
@@ -293,3 +294,8 @@ endif
 
 "fzf (bash fuzzy finder) vim plugin
 set rtp+=~/.fzf
+
+set guifont=Monospace\ 11
+
+"completion Options
+set completeopt=longest,menuone
