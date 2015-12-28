@@ -221,6 +221,8 @@ let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite buffer<cr>
 
+"toggle nerdtree using space-n
+nnoremap <space>n :NERDTreeToggle<cr>
 "ack using ag
 "
 if executable('ag')
