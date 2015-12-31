@@ -1,6 +1,6 @@
 #if you are on mac os x use GNU installed by homebrewls instead of BSD one
 unamestr="`uname`"
-if [ $unamestr=="Darwin" ]; then
+if [ "$unamestr" == "Darwin" ]; then
     alias ls='gls --color=auto'
     alias dir='gdir --color=auto'
     alias vdir='gvdir --color=auto'
@@ -40,3 +40,9 @@ alias .......='cd ../../../../../..; pwd; ls'
 alias cd..='cd ..; pwd'
 alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
 
+# some vim like aliases
+:e()
+{
+    vim "$@"
+}
+alias :q='exit'
