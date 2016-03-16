@@ -47,28 +47,6 @@ NeoBundle 'mileszs/ack.vim'
 
 " file searcher (not only)
 NeoBundle 'unite.vim'
-    "Unite
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    "call unite#custom#source('file_rec/async','sorters','sorter_rank', )
-    "replacing unite with ctrl-p
-    let g:unite_source_file_rec_max_cache_files=5000
-    let g:unite_data_directory='~/.vim/.cache/unite'
-    let g:unite_enable_start_insert=1
-    let g:unite_source_history_yank_enable=1
-    let g:unite_prompt='» '
-    let g:unite_split_rule = 'botright'
-    "use ag instead of grep
-    if executable('ag')
-     let g:unite_source_grep_command='ag'
-     let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
-     let g:unite_source_grep_recursive_opt=''
-    endif
-    nnoremap <space>/ :Unite grep:.<cr>
-    let g:unite_source_history_yank_enable = 1
-    nnoremap <space>y :Unite history/yank<cr>
-    nnoremap <space>s :Unite buffer<cr>
-
 " vimproc a luncher
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -91,26 +69,9 @@ NeoBundle 'vim-scripts/OmniCppComplete'
     let OmniCpp_ShowAccess=1
     let OmniCpp_ShowPrototypeInAbbr=1
 
-"NeoBundle 'Valloric/YouCompleteMe'
-", {
-"
-"     \ 'build' : {
-"     \     'mac' : './install.sh --clang-completer --system-libclang --gocode-completer',
-"     \     'unix' : './install.sh --clang-completer --system-libclang --gocode-completer',
-"     \     'windows' : './install.sh --clang-completer --system-libclang --gocode-completer',
-"     \     'cygwin' : './install.sh --clang-completer --system-libclang --gocode-completer'
-"     \    }
-"     \ }
-"NeoBundle 'Shougo/neosnippet.vim'
-"NeoBundle 'Shougo/neosnippet-snippets'
-"vim syntax highlighting based on ctags and auto tags generation
 "Vim git support
 NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'flazz/vim-colorschemes'
-"" unite.vim tags browser
-""NeoBundle 'tsukkee/unite-tag'
-"integrationo with tmux
-"NeoBundle 'benmills/vimux'
+"
 "syntax external checker
 NeoBundle 'scrooloose/syntastic'
     "syntastic (syntax checker) Options
@@ -247,4 +208,26 @@ let $PAGER=''
 nnoremap <silent> <c-p> :FZF<cr>
 "fzf (bash fuzzy finder) vim plugin
 set rtp+=~/.fzf
+
+"Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+"call unite#custom#source('file_rec/async','sorters','sorter_rank', )
+"replacing unite with ctrl-p
+let g:unite_source_file_rec_max_cache_files=5000
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_prompt='» '
+let g:unite_split_rule = 'botright'
+"use ag instead of grep
+if executable('ag')
+    let g:unite_source_grep_command='ag'
+    let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
+    let g:unite_source_grep_recursive_opt=''
+endif
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite buffer<cr>
 
