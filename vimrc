@@ -19,16 +19,56 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Add or remove your Bundles here:
 " file system browser
 NeoBundle 'scrooloose/nerdtree'
+    "toggle nerdtree using space-n
+    nnoremap <space>n :NERDTreeToggle<cr>
+    let g:NERDTreeWinPos='right'
+
 " status line for vim
 NeoBundle 'bling/vim-airline'
+    " airline settings
+    let g:airline_powerline_fonts = 1
+    set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
+
+
 " buffer display list (inegrated with airline)
 NeoBundle 'bling/vim-bufferline'
 " autoformat code using externals tools
 NeoBundle 'Chiel92/vim-autoformat'
+    " vim autoformat settings
+    let g:formatprg_cs="astyle"
+    let g:formatprg_args_cs="--indent=spaces=4 --suffix=none --unpad-paren --pad-oper --break-closing-brackets  --indent-labels --indent-cases --convert-tabs --indent-col1-comments --indent-preprocessor \"{}\" ;"
+
 " ack (programmers grep) plugin
 NeoBundle 'mileszs/ack.vim'
+    "ack using ag
+    if executable('ag')
+      let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
+    endif
+
 " file searcher (not only)
 NeoBundle 'unite.vim'
+    "Unite
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    "call unite#custom#source('file_rec/async','sorters','sorter_rank', )
+    "replacing unite with ctrl-p
+    let g:unite_source_file_rec_max_cache_files=5000
+    let g:unite_data_directory='~/.vim/.cache/unite'
+    let g:unite_enable_start_insert=1
+    let g:unite_source_history_yank_enable=1
+    let g:unite_prompt='» '
+    let g:unite_split_rule = 'botright'
+    "use ag instead of grep
+    if executable('ag')
+     let g:unite_source_grep_command='ag'
+     let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
+     let g:unite_source_grep_recursive_opt=''
+    endif
+    nnoremap <space>/ :Unite grep:.<cr>
+    let g:unite_source_history_yank_enable = 1
+    nnoremap <space>y :Unite history/yank<cr>
+    nnoremap <space>s :Unite buffer<cr>
+
 " vimproc a luncher
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -45,6 +85,12 @@ NeoBundle 'Shougo/vimshell.vim'
 
 " autocompletion
 NeoBundle 'vim-scripts/OmniCppComplete'
+    set completeopt=longest,menuone
+    "omnicpp config
+    set nocp
+    let OmniCpp_ShowAccess=1
+    let OmniCpp_ShowPrototypeInAbbr=1
+
 "NeoBundle 'Valloric/YouCompleteMe'
 ", {
 "
@@ -64,8 +110,24 @@ NeoBundle 'tpope/vim-fugitive'
 "" unite.vim tags browser
 ""NeoBundle 'tsukkee/unite-tag'
 "integrationo with tmux
-NeoBundle 'benmills/vimux'
-"
+"NeoBundle 'benmills/vimux'
+"syntax external checker
+NeoBundle 'scrooloose/syntastic'
+    "syntastic (syntax checker) Options
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_javascript_checkers = ['jshint']
+
+    "C++ lags
+    let g:syntastic_cpp_compiler = "clang++"
+    let g:syntastic_cpp_compiler_options = '-std=c++14'"
+
 " Required:
 call neobundle#end()
 "
@@ -164,7 +226,6 @@ nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <space>w :w<CR>
 
 
-"------------------------------------------------------------
 " vim as man pager required
 runtime! ftplugin/man.vim
 
@@ -180,63 +241,10 @@ set list
 " vim using 256 bit colors
 set t_Co=256
 
-" airline settings
-let g:airline_powerline_fonts = 1
-let g:airline_theme='luna'
-set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
-
-
-" vim autoformat settings
-let g:formatprg_cs="astyle"
-let g:formatprg_args_cs="--indent=spaces=4 --suffix=none --unpad-paren --pad-oper --break-closing-brackets  --indent-labels --indent-cases --convert-tabs --indent-col1-comments --indent-preprocessor \"{}\" ;"
-
 " vim as man viewer required:
 let $PAGER=''
 
-
-" ycm configuratioin
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
-
-"Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-"call unite#custom#source('file_rec/async','sorters','sorter_rank', )
-"replacing unite with ctrl-p
-let g:unite_source_file_rec_max_cache_files=5000
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_prompt='» '
-let g:unite_split_rule = 'botright'
-"use ag instead of grep
-if executable('ag')
- let g:unite_source_grep_command='ag'
- let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
- let g:unite_source_grep_recursive_opt=''
-endif
 nnoremap <silent> <c-p> :FZF<cr>
-nnoremap <space>/ :Unite grep:.<cr>
-let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite history/yank<cr>
-nnoremap <space>s :Unite buffer<cr>
-
-"toggle nerdtree using space-n
-nnoremap <space>n :NERDTreeToggle<cr>
-"ack using ag
-"
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
-endif
-
 "fzf (bash fuzzy finder) vim plugin
 set rtp+=~/.fzf
 
-set guifont=Monospace\ 11
-
-"completion Options
-set completeopt=longest,menuone
-"omnicpp config
-set nocp
-let OmniCpp_ShowAccess=1
-let OmniCpp_ShowPrototypeInAbbr=1
