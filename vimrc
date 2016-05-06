@@ -89,6 +89,22 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_cpp_compiler = "clang++"
     let g:syntastic_cpp_compiler_options = '-std=c++14'"
 
+"sending commands to the tmux split
+NeoBundle 'benmills/vimux'
+
+"project configuration
+NeoBundle 'tpope/vim-projectionist'
+    let g:projectionist_heuristics = {
+      \   "*.cpp": {
+      \     "alternate": "{}.hpp",
+      \     "type": "source"
+      \   },
+      \   "*.hpp": {
+      \     "alternate": "{}.cpp",
+      \     "type": "header"
+      \   },
+      \ }
+
 " Required:
 call neobundle#end()
 "
@@ -104,6 +120,8 @@ NeoBundleCheck
 "-----------------------------------------------------------
 "---------  Must have  -------------------------------------
 "-----------------------------------------------------------
+" Colorscheme that works nice with vimdiff
+set background=dark
 
 " Enable syntax highlighting
 syntax on
@@ -169,6 +187,9 @@ set cursorline
 " cursorline number set
 hi CursorLineNr cterm=bold ctermfg=Yellow gui=bold guifg=Yellow
 hi CursorLine cterm=bold ctermbg=234
+
+" always show few top or bottom lines around cursor
+set scrolloff=5
 
 
 "-----------------------------------------------------------
