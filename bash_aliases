@@ -47,5 +47,3 @@ alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | t
 }
 alias :q='exit'
 
-# i always use this ps
-alias ps='ps axjf'

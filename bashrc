@@ -89,6 +89,7 @@ fi
 echo -e "He who knows that enough is enough will always have enough\n\t-- Lao Tsu"
 echo -e "Much of the excitement we get out of our work is that we don't really\nknow what we are doing.\n\t-- E. Dijkstra"
 echo -e "Don't let schooling interfere  with your education\n\t-- M. Twain \n\n"
+echo -e "Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say \n\t-- Edward Snowden"
 #random quote
 fortune -a
 echo -e "\n"
