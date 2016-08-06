@@ -27,7 +27,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
     " airline settings
     let g:airline_powerline_fonts = 1
-    set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
 
 
 " buffer display list (inegrated with airline)
@@ -105,6 +104,8 @@ NeoBundle 'tpope/vim-projectionist'
       \   },
       \ }
 
+"support for rust lang
+NeoBundle 'wting/rust.vim'
 " Required:
 call neobundle#end()
 "
@@ -248,6 +249,8 @@ if executable('ag')
     let g:unite_source_grep_recursive_opt=''
 endif
 nnoremap <space>/ :Unite grep:.<cr>
+"unite grep for search under cursor
+nnoremap <space>g "zyiw<space>:Unite grep:.<CR><C-r>z<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite buffer<cr>
