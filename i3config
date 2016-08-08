@@ -191,3 +191,4 @@ bindsym $mod+shift+x exec /bin/bash /home/grzebiel/.screenlayout/notDocked.sh
 
 exec /usr/libexec/gnome-settings-daemon
 bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
