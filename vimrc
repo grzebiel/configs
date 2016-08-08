@@ -30,7 +30,7 @@ NeoBundle 'bling/vim-airline'
 
 
 " buffer display list (inegrated with airline)
-NeoBundle 'bling/vim-bufferline'
+"NeoBundle 'bling/vim-bufferline'
 " autoformat code using externals tools
 NeoBundle 'Chiel92/vim-autoformat'
     " vim autoformat settings
@@ -70,7 +70,10 @@ NeoBundle 'vim-scripts/OmniCppComplete'
 
 "Vim git support
 NeoBundle 'tpope/vim-fugitive'
-"
+
+"vim show line changed in according to git
+NeoBundle 'airblade/vim-gitgutter'
+
 "syntax external checker
 NeoBundle 'scrooloose/syntastic'
     "syntastic (syntax checker) Options
@@ -106,6 +109,25 @@ NeoBundle 'tpope/vim-projectionist'
 
 "support for rust lang
 NeoBundle 'wting/rust.vim'
+
+"bar of interpreted tags from ctags
+NeoBundle 'majutsushi/tagbar'
+
+"snippets manager
+NeoBundle 'SirVer/ultisnips'
+
+    " Snippets are separated from the engine. Add this if you want them:
+    NeoBundle 'honza/vim-snippets'
+
+    " Trigger configuration.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+"
 " Required:
 call neobundle#end()
 "
