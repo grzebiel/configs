@@ -1,67 +1,54 @@
 
 set nocompatible               " Be iMproved
-"-----------------------------------------------------------
-"---------  NeoBundle Scripts  -----------------------------
-"-----------------------------------------------------------
+"---------  dein Scripts  -----------------------------
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" Required:
+set runtimepath^=/home/grzebiel/.vim/bundle//repos/github.com/Shougo/dein.vim
 
-call neobundle#begin(expand('~/.vim/bundle'))
+" Required:
+call dein#begin(expand('/home/grzebiel/.vim/bundle/'))
 
-" maximal timeout for installation process
-let g:neobundle#install_process_timeout = 1500
+" Let dein manage dein
+call dein#add('Shougo/dein.vim')
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 " file system browser
-NeoBundle 'scrooloose/nerdtree'
+call dein#add('scrooloose/nerdtree')
     "toggle nerdtree using space-n
     nnoremap <space>n :NERDTreeToggle<cr>
     let g:NERDTreeWinPos='right'
 
 " status line for vim
-NeoBundle 'bling/vim-airline'
+call dein#add('bling/vim-airline')
     " airline settings
     let g:airline_powerline_fonts = 1
 
 
 " buffer display list (inegrated with airline)
-"NeoBundle 'bling/vim-bufferline'
+"call dein#add('bling/vim-bufferline')
 " autoformat code using externals tools
-NeoBundle 'Chiel92/vim-autoformat'
+call dein#add('Chiel92/vim-autoformat')
     " vim autoformat settings
     let g:formatprg_cs="astyle"
     let g:formatprg_args_cs="--indent=spaces=4 --suffix=none --unpad-paren --pad-oper --break-closing-brackets  --indent-labels --indent-cases --convert-tabs --indent-col1-comments --indent-preprocessor \"{}\" ;"
 
 " ack (programmers grep) plugin
-NeoBundle 'mileszs/ack.vim'
+call dein#add('mileszs/ack.vim')
     "ack using ag
     if executable('ag')
       let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
     endif
 
 " file searcher (not only)
-NeoBundle 'unite.vim'
+call dein#add('unite.vim')
 " vimproc a luncher
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \     'windows' : 'tools\\update-dll-mingw',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'linux' : 'make',
-            \     'unix' : 'gmake',
-            \    },
-            \ }
-
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 " shell implementation inside vim
-NeoBundle 'Shougo/vimshell.vim'
+call dein#add('Shougo/vimshell.vim')
 
 " autocompletion
-NeoBundle 'vim-scripts/OmniCppComplete'
+call dein#add('vim-scripts/OmniCppComplete')
     set completeopt=longest,menuone
     "omnicpp config
     set nocp
@@ -69,13 +56,13 @@ NeoBundle 'vim-scripts/OmniCppComplete'
     let OmniCpp_ShowPrototypeInAbbr=1
 
 "Vim git support
-NeoBundle 'tpope/vim-fugitive'
+call dein#add('tpope/vim-fugitive')
 
 "vim show line changed in according to git
-NeoBundle 'airblade/vim-gitgutter'
+call dein#add('airblade/vim-gitgutter')
 
 "syntax external checker
-NeoBundle 'scrooloose/syntastic'
+call dein#add('scrooloose/syntastic')
     "syntastic (syntax checker) Options
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -92,10 +79,10 @@ NeoBundle 'scrooloose/syntastic'
     let g:syntastic_cpp_compiler_options = '-std=c++14'"
 
 "sending commands to the tmux split
-NeoBundle 'benmills/vimux'
+call dein#add('benmills/vimux')
 
 "project configuration
-NeoBundle 'tpope/vim-projectionist'
+call dein#add('tpope/vim-projectionist')
     let g:projectionist_heuristics = {
       \   "*.cpp": {
       \     "alternate": "{}.hpp",
@@ -108,16 +95,16 @@ NeoBundle 'tpope/vim-projectionist'
       \ }
 
 "support for rust lang
-NeoBundle 'wting/rust.vim'
+call dein#add('wting/rust.vim')
 
 "bar of interpreted tags from ctags
-NeoBundle 'majutsushi/tagbar'
+call dein#add('majutsushi/tagbar')
 
 "snippets manager
-NeoBundle 'SirVer/ultisnips'
+call dein#add('SirVer/ultisnips')
 
     " Snippets are separated from the engine. Add this if you want them:
-    NeoBundle 'honza/vim-snippets'
+    call dein#add('honza/vim-snippets')
 
     " Trigger configuration.
     let g:UltiSnipsExpandTrigger="<tab>"
@@ -129,14 +116,16 @@ NeoBundle 'SirVer/ultisnips'
 
 "
 " Required:
-call neobundle#end()
+call dein#end()
 "
 " Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck
+if dein#check_install()
+    call dein#install()
+endif
 "End NeoBundle Scripts-------------------------
 
 
