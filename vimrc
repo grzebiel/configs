@@ -11,13 +11,7 @@ call dein#begin(expand('/home/grzebiel/.vim/bundle/'))
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 
-
 " Add or remove your Bundles here:
-" file system browser
-call dein#add('scrooloose/nerdtree')
-    "toggle nerdtree using space-n
-    nnoremap <space>n :NERDTreeToggle<cr>
-    let g:NERDTreeWinPos='right'
 
 " status line for vim
 call dein#add('bling/vim-airline')
@@ -241,6 +235,10 @@ let $PAGER=''
 nnoremap <silent> <c-p> :FZF<cr>
 "fzf (bash fuzzy finder) vim plugin
 set rtp+=~/.fzf
+
+"Use vim file explorer
+let g:netrw_liststyle=3
+nnoremap <space>n :Explore<cr>
 
 "Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
