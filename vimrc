@@ -14,9 +14,26 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your Bundles here:
 
 " status line for vim
-call dein#add('bling/vim-airline')
-    " airline settings
-    let g:airline_powerline_fonts = 1
+call dein#add('itchyny/lightline.vim')
+    let g:lightline = {
+          \ 'colorscheme': 'wombat',
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+          \ },
+          \ 'component': {
+          \   'readonly': '%{&readonly?"x":""}',
+          \ },
+          \ 'component_function': {
+          \   'fugitive': 'LightLineFugitive',
+          \ },
+          \ 'separator': { 'left': '', 'right': '' },
+          \ 'subseparator': { 'left': '|', 'right': '|' }
+          \ }
+
+    function! LightLineFugitive()
+        return exists('*fugitive#head') ? fugitive#head() : ''
+    endfunction
 
 
 " buffer display list (inegrated with airline)
