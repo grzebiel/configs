@@ -123,7 +123,7 @@ clla() {
 #export ftp_proxy="ftp://10.144.1.10:8080"
 
 #custom scripts location added to path
-export PATH=~/bin:$PATH
+export PATH=~/configs/bin:~/bin:$PATH
 
 #cd history
 source ~/.adc_func.sh
