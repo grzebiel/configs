@@ -6,9 +6,10 @@
 ln -s vimrc ~/.vimrc
 ln -s bashrc ~/.bashrc
 ln -s i3config ~/.config/i3/config # optionaly ~/.i3/config
-ln -s bash_alieses ~/.bash_aliases
+ln -s bash_aliases ~/.bash_aliases
 ln -s adc_func ~/.adc_func.sh
 ln -s tmux.conf ~/.tmux.conf
+ln -s bash_completion ~/.bash_completion
 ```
 
 ## vim package manager
