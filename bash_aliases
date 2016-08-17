@@ -40,6 +40,8 @@ alias .......='cd ../../../../../..; pwd; ls'
 alias cd..='cd ..; pwd'
 alias spacestoanderscore='ls | while read -r file; do mv "$file" `echo $file | tr " " "_" `; done'
 
+alias lns='ln -s'
+
 # you dont want vi...
 alias vi='vim'
 

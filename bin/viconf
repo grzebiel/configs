@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cur_path=$(pwd)
+configs_path="$HOME/configs"
+
+if [  $# -eq 0 ];
+then
+    files="."
+else
+    files="$@"
+fi
+
+cd $configs_path
+exec vim "$configs_path/$files"
+
+

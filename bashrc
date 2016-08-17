@@ -123,14 +123,14 @@ clla() {
 #export ftp_proxy="ftp://10.144.1.10:8080"
 
 #custom scripts location added to path
-export PATH=~/bin:$PATH
+export PATH=~/configs/bin:~/bin:$PATH
 
 #cd history
 source ~/.adc_func.sh
 
 #vim as man viewer
 export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    vim -R -c 'set ft=man nomod nolist nonumber' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
