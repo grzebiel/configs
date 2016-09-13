@@ -64,6 +64,9 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 " shell implementation inside vim
 call dein#add('Shougo/vimshell.vim')
 
+" improved cpp coloring
+call dein#add('octol/vim-cpp-enhanced-highlight')
+
 " autocompletion
 call dein#add('vim-scripts/OmniCppComplete')
     set completeopt=longest,menuone

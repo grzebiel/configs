@@ -111,6 +111,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+#move workspace to different display:
+bindsym $mod+> move workspace to output right
+bindsym $mod+< move workspace to output left
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -168,7 +172,7 @@ bar {
             urgent_workspace   #2f343a #900000 #ffffff
         }
 }
-set $Locker i3lock -c 000000 && sleep 1
+set $Locker i3lock -c 000000 -i ~/.config/i3/fut.png -t && sleep 1
 
 
 bindsym Mod1+control+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
@@ -191,5 +195,5 @@ bindsym $mod+x mode "$mode_display"
 bindsym $mod+shift+x exec /bin/bash /home/grzebiel/.screenlayout/notDocked.sh
 
 exec /usr/libexec/gnome-settings-daemon
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+greater move workspace to output right
+bindsym $mod+less move workspace to output left
