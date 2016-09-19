@@ -53,17 +53,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-export PS1='\[\033[01;037m\]$\[\033[00m'
+export PS1='$(git_ps)\[\033[01;037m\]$\[\033[00m'
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
