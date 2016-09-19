@@ -134,3 +134,10 @@ export GOPATH=~/workspace/go/
 #more readable colors of dirs in ls colorized output
 export LS_COLORS=$LS_COLORS:'di=0;35:'
 eval alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1)) && eval $TF_CMD && history -s $TF_CMD'
+
+
+#print my tasks
+if [ $(which task) != "" ]
+then
+    task list
+fi
