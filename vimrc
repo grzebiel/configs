@@ -11,7 +11,13 @@ call dein#begin(expand('/home/grzebiel/.vim/bundle/'))
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 
+
 " Add or remove your Bundles here:
+" file system browser
+call dein#add('scrooloose/nerdtree')
+    "toggle nerdtree using space-n
+    nnoremap <space>n :NERDTreeToggle<cr>
+    let g:NERDTreeWinPos='right'
 
 " status line for vim
 call dein#add('itchyny/lightline.vim')
@@ -58,6 +64,9 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 " shell implementation inside vim
 call dein#add('Shougo/vimshell.vim')
 
+" improved cpp coloring
+call dein#add('octol/vim-cpp-enhanced-highlight')
+
 " autocompletion
 call dein#add('vim-scripts/OmniCppComplete')
     set completeopt=longest,menuone
@@ -81,7 +90,7 @@ call dein#add('scrooloose/syntastic')
 
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
     let g:syntastic_javascript_checkers = ['jshint']
 
@@ -252,10 +261,6 @@ let $PAGER=''
 nnoremap <silent> <c-p> :FZF<cr>
 "fzf (bash fuzzy finder) vim plugin
 set rtp+=~/.fzf
-
-"Use vim file explorer
-let g:netrw_liststyle=3
-nnoremap <space>n :Explore<cr>
 
 "Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])

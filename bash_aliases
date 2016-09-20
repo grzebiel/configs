@@ -52,3 +52,5 @@ alias vi='vim'
 }
 alias :q='exit'
 
+# tmux in 265 colors
+alias tmux="TERM=xterm-256color tmux"
