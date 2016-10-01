@@ -1,28 +1,17 @@
-import i3pystatus
-import socket
+#!/usr/bin/env python3
 
-hostname = socket.gethostname()
+from i3pystatus import Status
+from i3pystatus.updates import pacman, cower
+from i3pystatus.weather import weathercom
 
-status = i3pystatus.Status()
+COLOR_RED = '#af3a03'
+COLOR_NORMAL = '#fdf4c1'
+
+status = Status(standalone=True)
 
 # Displays clock like this:
-# Tue 30 Jul 11:59:46 PM KW31
-#                          ^-- calendar week
 status.register("clock",
-    format="%a %-d %b %X KW%V",)
-
-# Shows the average load of the last minute and the last 5 minutes
-# (the default value for format is used)
-status.register("load")
-
-# Shows your CPU temperature, if you have a Intel CPU
-status.register("temp",
-    format="{temp:.0f}°C",)
-
-# Displays whether a DHCP client is running
-status.register("runwatch",
-    name="DHCP",
-    path="/var/run/dhclient*.pid",)
+        format="  %a %-d.%m.%Y   %X",)
 
 # Shows the address and up/down state of eth0. If it is up the address is shown in
 # green (the default value of color_up) and the CIDR-address is shown
@@ -32,36 +21,57 @@ status.register("runwatch",
 #
 # Note: the network module requires PyPI package netifaces
 status.register("network",
-    interface="enp0s31f6",
-    format_up="{v4cidr}",)
+    interface="enp0s61f6",
+    format_up=" {v4cidr}",
+    format_down="",
+    color_up=COLOR_NORMAL,
+    color_down=COLOR_NORMAL,)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
     interface="wlp6s0",
-    format_up="{essid} {quality:03.0f}%",)
+    format_up=" {essid} {quality:03.0f}%",
+    format_down="",
+    color_up=COLOR_NORMAL,)
+
+status.register("cpu_usage_graph",
+                format_all="{usage}",
+                start_color=COLOR_NORMAL,
+                end_color=COLOR_RED,
+                graph_style="blocks",)
+
+# Shows the average load of the last minute and the last 5 minutes
+# (the default value for format is used)
+status.register("load",
+                format='  {avg1} {avg5} {avg15}',
+                critical_limit=4,
+                critical_color=COLOR_RED)
+
+
+# Display memory
+status.register('mem', format=' M {percent_used_mem}', color=COLOR_NORMAL,)
 
 # Shows disk usage of /
 # Format:
 # 42/128G [86G]
 status.register("disk",
     path="/",
-    format="{used}/{total}G [{avail}G]",)
+    format="  {avail}G",)
 
-# Shows pulseaudio default sink volume
-#
-# Note: requires libpulseaudio from PyPI
-status.register("pulseaudio",
-    format="♪{volume}",)
+status.register("updates",
+        format = "Updates: {count}",
+        format_no_updates = "No updates",
+        backends = [pacman.Pacman(), cower.Cower()])
 
-# Shows mpd status
-# Format:
-# Cloud connected▶Reroute to Remain
-status.register("mpd",
-    format="{title}{status}{album}",
-    status={
-        "pause": "▷",
-        "play": "▶",
-        "stop": "◾",
-    },)
+
+
+status.register("weather",
+                format=" {current_temp}  {humidity}",
+                colorize=True,
+                interval=120,
+                backend=weathercom.Weathercom(
+                    location_code="PLXX0029:1:PL",
+                            ),
+                    )
 
 status.run()
