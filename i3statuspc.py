@@ -72,28 +72,34 @@ status.register("cpu_usage_graph",
 
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
-status.register("load",
-                format='  {avg1} {avg5} {avg15}',
-                critical_limit=4,
-                critical_color=COLOR_RED)
+status.register("temp",
+                format='{temp} °C')
+
+status.register("cpu_usage",
+                format='  {usage}')
+                #critical_limit=4,
+                #critical_color=COLOR_RED)
 
 
 # Display memory
-status.register('mem', format=' M {percent_used_mem}', color=COLOR_NORMAL,)
+status.register('mem', format='  {percent_used_mem}%', color=COLOR_NORMAL,)
 
 # Shows disk usage of /
 # Format:
 # 42/128G [86G]
 status.register("disk",
     path="/",
-    format="  {avail}G",)
+    format=" {avail}G",)
+
+status.register("disk",
+        path="/home",
+        format=" {avail}G"
+)
 
 status.register("updates",
-        format = "Updates: {count}",
-        format_no_updates = "No updates",
+        format = " {count}",
+        format_no_updates = "",
         backends = [pacman.Pacman(), cower.Cower()])
-
-
 
 status.register("weather",
                 format=" {current_temp}  {humidity}",

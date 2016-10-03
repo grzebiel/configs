@@ -32,7 +32,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # asign firefox to its own workspace
 assign [class="Firefox"] $workspace_browser
 # start mail client
-bindsym $mod+m exec thunderbird
+assign [class="Thunderbird"] $workspace_mail
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -87,7 +87,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace_browser "browser"
+set $workspace_browser ""
+set $workspace_mail ""
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -100,7 +101,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 #go to browser workspace and run firefox if its not running already
-bindsym $mod+b exec i3-workspace-run.sh $workspace_browser firefox
+bindsym $mod+b exec i3-workspace-run.sh $workspace_browser firefox "^Firefox$"
+bindsym $mod+m exec i3-workspace-run.sh $workspace_mail thunderbird "^Thunderbird$"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -114,6 +116,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+b move container to workspace $workspace_browser
+bindsym $mod+Shift+m move container to workspace $workspace_mail
 
 #move workspace to different display:
 bindsym $mod+> move workspace to output right
