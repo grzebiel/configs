@@ -76,7 +76,7 @@ status.register("temp",
                 format='{temp} °C')
 
 status.register("cpu_usage",
-                format='  {usage}')
+                format='  {usage:02.0f}%')
                 #critical_limit=4,
                 #critical_color=COLOR_RED)
 
