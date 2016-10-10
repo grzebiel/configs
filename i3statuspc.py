@@ -102,7 +102,7 @@ status.register("updates",
         backends = [pacman.Pacman(), cower.Cower()])
 
 status.register("weather",
-                format=" {current_temp}  {humidity}",
+                format="{icon} {current_temp}{temp_unit} ({low_temp}-{high_temp})  {humidity}",
                 colorize=True,
                 interval=120,
                 backend=weathercom.Weathercom(
