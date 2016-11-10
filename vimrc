@@ -216,11 +216,14 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" cursor line highlingh
+" cursor line highlight
 set cursorline
 " cursorline number set
 hi CursorLineNr cterm=bold ctermfg=Yellow gui=bold guifg=Yellow
-hi CursorLine cterm=bold ctermbg=234
+hi CursorLine ctermbg=234 cterm=NONE
+" Spelling mistakes don't interfere with cursorline
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=Red
 
 " always show few top or bottom lines around cursor
 set scrolloff=5
