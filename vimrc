@@ -74,6 +74,8 @@ call dein#add('vim-scripts/OmniCppComplete')
     set nocp
     let OmniCpp_ShowAccess=1
     let OmniCpp_ShowPrototypeInAbbr=1
+    "create ctags for omnicpp
+    nnoremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "Vim git support
 call dein#add('tpope/vim-fugitive')
