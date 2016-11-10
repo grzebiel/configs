@@ -2,7 +2,7 @@
 
 set complete=slfbh
 "set defsearch=wikipedia
-set editor=~/configs/bin/viw
+set editor="~/configs/bin/viw"
 "set guioptions=rbmB
 set runtimepath=~/.vimperator
 source! ~/.vimperatorrc.local
