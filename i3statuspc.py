@@ -60,20 +60,24 @@ status.register("network",
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
     interface=wifiInterface,
-    format_up=" {essid} {quality:03.0f}%",
+    format_up=" {essid} {quality:02.0f}%",
     format_down="",
     color_up=COLOR_NORMAL,)
 
-status.register("cpu_usage_graph",
-                format_all="{usage}",
-                start_color=COLOR_NORMAL,
-                end_color=COLOR_RED,
-                graph_style="blocks",)
+#status.register("cpu_usage_graph",
+#                format_all="{usage}",
+#                start_color=COLOR_NORMAL,
+#                end_color=COLOR_RED,
+#                graph_style="braille-snake",)
 
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
 status.register("temp",
                 format='{temp} °C')
+
+status.register("cpu_usage_bar",
+        bar_type = "vertical"
+        )
 
 status.register("cpu_usage",
                 format='  {usage:02.0f}%')
@@ -91,10 +95,18 @@ status.register("disk",
     path="/",
     format=" {avail}G",)
 
-status.register("disk",
-        path="/home",
-        format=" {avail}G"
-)
+if not isLaptop:
+    status.register("disk",
+            path="/home",
+            format=" {avail}G"
+    )
+
+status.register("mpd",
+        format = " {status} {artist} - {title} ({album}) {song_elapsed}/{song_length}",
+        host = "/home/grzebiel/.config/mpd/socket",
+        port = 0,
+        max_len = 50
+        )
 
 status.register("updates",
         format = " {count}",
