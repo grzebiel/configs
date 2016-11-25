@@ -84,21 +84,24 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 
 "syntax external checker
-call dein#add('scrooloose/syntastic')
-    "syntastic (syntax checker) Options
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+"call dein#add('scrooloose/syntastic')
+"    "syntastic (syntax checker) Options
+"    set statusline+=%#warningmsg#
+"    set statusline+=%{SyntasticStatuslineFlag()}
+"    set statusline+=%*
+"
+"    let g:syntastic_always_populate_loc_list = 1
+"    let g:syntastic_auto_loc_list = 1
+"    let g:syntastic_check_on_open = 0
+"    let g:syntastic_check_on_wq = 0
+"    let g:syntastic_javascript_checkers = ['jshint']
+"
+"    "C++ lags
+"    let g:syntastic_cpp_compiler = "clang++"
+"    let g:syntastic_cpp_compiler_options = '-std=c++14'"
 
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 0
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_javascript_checkers = ['jshint']
-
-    "C++ lags
-    let g:syntastic_cpp_compiler = "clang++"
-    let g:syntastic_cpp_compiler_options = '-std=c++14'"
+"syntax asynchronous checker
+call dein#add('w0rp/ale')
 
 "sending commands to the tmux split
 call dein#add('benmills/vimux')
@@ -135,6 +138,9 @@ call dein#add('SirVer/ultisnips')
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+"better support for Markdown fils
+call dein#add('plasticboy/vim-markdown')
 
 "
 " Required:
@@ -296,4 +302,8 @@ nnoremap <space>g "zyiw<space>:Unite grep:.<CR><C-r>z<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite buffer<cr>
+
+"clang format mapping
+map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
