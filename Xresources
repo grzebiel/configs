@@ -5,7 +5,7 @@ URxvt.boldItalicFont:      xft:Source Code Pro:pixelsize=14:bold:italic
 URxvt.letterSpace:         -1
 
 *background: #000000
-*foreground: #C5C8C6
+*foreground: #CCDDEE
 !black
 *color0: #2D3C46
 *color8: #425059
@@ -36,17 +36,17 @@ URxvt.externalBorder:      0
 
 URxvt.scrollBar:           false
 
-URxvt*fading:              30
+URxvt*fading:              40
 
 URxvt.perl-ext-common:     default,matcher,resize-font,foo
 
-URxvt.keysym.F11:          perl:fullscreen:switch
+URxvt.keysym.C-minus:      resize-font:smaller
+URxvt.keysym.C-plus:       resize-font:bigger
+URxvt.keysym.C-equal:      resize-font:reset
 
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger:  C-Up
+
 
 URxvt.url-launcher:        /usr/bin/firefox
+URxvt.matcher.button:      1
 URxvt.keysym.M-Delete:     perl:matcher:list
 URxvt.colorUL: #7780a1
-
-!URxvt.borderLess:          true
