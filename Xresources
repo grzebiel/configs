@@ -1,7 +1,7 @@
-URxvt.font:                xft:Source Code Pro:pixelsize=14:medium
-URxvt.boldFont:            xft:Source Code Pro:pixelsize=14:bold
-URxvt.italicFont:          xft:Source Code Pro:pixelsize=14:italic
-URxvt.boldItalicFont:      xft:Source Code Pro:pixelsize=14:bold:italic
+URxvt.font:                xft:Source Code Pro:size=11:medium
+URxvt.boldFont:            xft:Source Code Pro:size=11:bold
+URxvt.italicFont:          xft:Source Code Pro:size=11:italic
+URxvt.boldItalicFont:      xft:Source Code Pro:size=11:bold:italic
 URxvt.letterSpace:         -1
 
 *background: #000000
@@ -38,13 +38,7 @@ URxvt.scrollBar:           false
 
 URxvt*fading:              40
 
-URxvt.perl-ext-common:     default,matcher,resize-font,foo
-
-URxvt.keysym.C-minus:      resize-font:smaller
-URxvt.keysym.C-plus:       resize-font:bigger
-URxvt.keysym.C-equal:      resize-font:reset
-
-
+URxvt.perl-ext-common:     default,matcher
 
 URxvt.url-launcher:        /usr/bin/firefox
 URxvt.matcher.button:      1
