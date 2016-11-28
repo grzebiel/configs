@@ -24,6 +24,9 @@ URXVT fonts: adobe-source-code-pro-fonts
 I3: DejaVu
 symbols: font-awesome
 
+## URXVT
+extensions to instal: urxct-resize-font-git
+
 ## Fzf
 requires [junegunn/fzf][2] installed
 

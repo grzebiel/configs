@@ -38,7 +38,14 @@ URxvt.scrollBar:           false
 
 URxvt*fading:              40
 
-URxvt.perl-ext-common:     default,matcher
+! enable ctrl+shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.perl-ext-common:     default,matcher,resize-font
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
 
 URxvt.url-launcher:        /usr/bin/firefox
 URxvt.matcher.button:      1
