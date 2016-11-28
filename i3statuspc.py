@@ -103,8 +103,8 @@ if not isLaptop:
 
 status.register("mpd",
         format = " {status} {artist} - {title} ({album}) {song_elapsed}/{song_length}",
-        host = "/home/grzebiel/.config/mpd/socket",
-        port = 0,
+        host = "localhost",
+        port = 6600,
         max_len = 50
         )
 
