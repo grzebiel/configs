@@ -27,6 +27,12 @@ symbols: font-awesome
 ## URXVT
 extensions to instal: urxct-resize-font-git
 
+## i3 open term from here
+dependencies:
+```
+xorg-xdpyinfo
+```
+
 ## Fzf
 requires [junegunn/fzf][2] installed
 
