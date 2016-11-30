@@ -25,7 +25,7 @@ I3: DejaVu
 symbols: font-awesome
 
 ## URXVT
-extensions to instal: urxct-resize-font-git
+extensions to instal: urxct-font-size-git
 
 ## Fzf
 requires [junegunn/fzf][2] installed
