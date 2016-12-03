@@ -10,22 +10,18 @@ ln -s bash_aliases ~/.bash_aliases
 ln -s adc_func ~/.adc_func.sh
 ln -s tmux.conf ~/.tmux.conf
 ln -s bash_completion ~/.bash_completion
-ln -s Xresources ~/.Xresources
 ```
 
 ## vim package manager
-requires [ Shougo/dein.vim][1] installed in
+requires [ Shougo/dein.vim][2] installed in
 ```
 ~/.vim/bundle
 ```
 
 ## fonts
-URXVT fonts: adobe-source-code-pro-fonts
+terminal favorite font: adobe-source-code-pro-fonts
 I3: DejaVu
 symbols: font-awesome
-
-## URXVT
-extensions to instal: urxct-font-size-git
 
 ## i3 open term from here
 dependencies:
@@ -34,7 +30,7 @@ xorg-xdpyinfo
 ```
 
 ## Fzf
-requires [junegunn/fzf][2] installed
+requires [junegunn/fzf][1] installed
 
 
 ## viconf

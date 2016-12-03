@@ -31,7 +31,7 @@ bindsym $mod+Return exec ~/configs/bin/termFromHere
 
 # make only small borders
 for_window [class=".*"] border pixel 2
-for_window [class="URxvt"] border none
+for_window [class="Terminator"] border none
 
 #disable borders touching screen edge
 hide_edge_borders both
