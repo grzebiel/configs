@@ -60,7 +60,7 @@ status.register("network",
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
     interface=wifiInterface,
-    format_up=" {essid} {quality:02.0f}%",
+    format_up=" {essid} {quality:03.0f}%",
     format_down="",
     color_up=COLOR_NORMAL,)
 
