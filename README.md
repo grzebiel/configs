@@ -5,6 +5,7 @@
 ```sh
 ln -s vimrc ~/.vimrc
 ln -s bashrc ~/.bashrc
+ln -s quotes ~/.quotes
 ln -s i3config ~/.config/i3/config # optionaly ~/.i3/config
 ln -s bash_aliases ~/.bash_aliases
 ln -s adc_func ~/.adc_func.sh
