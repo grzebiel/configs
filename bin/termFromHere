@@ -1,9 +1,4 @@
 #!/bin/bash
-#!/bin/bash
-# i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
-# Inspired by https://gist.github.com/viking/5851049 but with support for tmux
-
-#!/bin/bash
 # i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
 
 CMD=terminator
