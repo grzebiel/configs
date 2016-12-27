@@ -2,7 +2,7 @@
 set nocompatible               " Be iMproved
 
 " space ftw
-let mapleader "\<Space>"
+let mapleader = "\<Space>"
 
 "---------  dein Scripts  -----------------------------
 
