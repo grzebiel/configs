@@ -1,5 +1,9 @@
 
 set nocompatible               " Be iMproved
+
+" space ftw
+let mapleader "\<Space>"
+
 "---------  dein Scripts  -----------------------------
 
 " Required:
@@ -15,8 +19,8 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your Bundles here:
 " file system browser
 call dein#add('scrooloose/nerdtree')
-    "toggle nerdtree using space-n
-    nnoremap <space>n :NERDTreeToggle<cr>
+    "toggle nerdtree using Leader-n
+    nnoremap <Leader>n :NERDTreeToggle<cr>
     let g:NERDTreeWinPos='right'
 
 " status line for vim
@@ -254,8 +258,8 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Map <space>w for :w
-nnoremap <space>w :w<CR>
+" Map <Leader>w for :w
+nnoremap <Leader>w :w<CR>
 
 
 " vim as man pager required
@@ -297,12 +301,12 @@ if executable('ag')
     let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
     let g:unite_source_grep_recursive_opt=''
 endif
-nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <Leader>/ :Unite grep:.<cr>
 "unite grep for search under cursor
-nnoremap <space>g "zyiw<space>:Unite grep:.<CR><C-r>z<CR>
+nnoremap <Leader>g "zyiw<space>:Unite grep:.<CR><C-r>z<CR>
 let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite history/yank<cr>
-nnoremap <space>s :Unite buffer<cr>
+nnoremap <Leader>y :Unite history/yank<cr>
+nnoremap <Leader>s :Unite buffer<cr>
 
 "clang format mapping
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
