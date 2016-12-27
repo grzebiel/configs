@@ -12,6 +12,7 @@ ln -s adc_func ~/.adc_func.sh
 ln -s tmux.conf ~/.tmux.conf
 ln -s bash_completion ~/.bash_completion
 ln -s systemd ~/.configs/systemd
+ln -s gitconfig ~/.gitconfig
 ```
 
 ## vim package manager

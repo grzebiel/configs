@@ -1,0 +1,10 @@
+[user]
+	email = grzebieluch@me.com
+	name = grzebiel
+[alias]
+	lg = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+	cmd = vimdiff $LOCAL $REMOTE
+
