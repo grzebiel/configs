@@ -8,3 +8,5 @@
 [difftool "default-difftool"]
 	cmd = vimdiff $LOCAL $REMOTE
 
+[core]
+	editor = vim
