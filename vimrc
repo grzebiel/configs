@@ -22,13 +22,14 @@ call dein#add('scrooloose/nerdtree')
 " status line for vim
 call dein#add('itchyny/lightline.vim')
     let g:lightline = {
-          \ 'colorscheme': 'wombat',
+          \ 'colorscheme': 'powerline',
           \ 'active': {
           \   'left': [ [ 'mode', 'paste' ],
           \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
           \ },
           \ 'component': {
-          \   'readonly': '%{&readonly?"x":""}',
+          \   'readonly': '%{&readonly?"":""}',
+          \   'modified': '%{&filetype=="help"?"":&modified?" ":&modifiable?"":"-"}'
           \ },
           \ 'component_function': {
           \   'fugitive': 'LightLineFugitive',
@@ -38,7 +39,7 @@ call dein#add('itchyny/lightline.vim')
           \ }
 
     function! LightLineFugitive()
-        return exists('*fugitive#head') ? fugitive#head() : ''
+        return exists('*fugitive#head') ? ' ' . fugitive#head() : ''
     endfunction
 
 
