@@ -29,7 +29,7 @@ call dein#add('itchyny/lightline.vim')
           \ 'colorscheme': 'powerline',
           \ 'active': {
           \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+          \             [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ]
           \ },
           \ 'component': {
           \   'readonly': '%{&readonly?"":""}',
