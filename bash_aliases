@@ -61,3 +61,12 @@ alias :q='exit'
 
 # tmux in 265 colors
 alias tmux="TERM=xterm-256color tmux"
+
+# pacaur instead of pacman
+if pacaur -v > /dev/null
+then
+    alias pacman='pacaur --color always'
+elif yaourt -v > /dev/null
+then 
+    alias pacman='yaourt'
+fi

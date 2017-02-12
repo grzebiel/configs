@@ -64,63 +64,30 @@ status.register("network",
     format_down="",
     color_up=COLOR_NORMAL,)
 
-#status.register("cpu_usage_graph",
-#                format_all="{usage}",
-#                start_color=COLOR_NORMAL,
-#                end_color=COLOR_RED,
-#                graph_style="braille-snake",)
-
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
 status.register("temp",
                 format='{temp} °C')
 
-status.register("cpu_usage_bar",
-        bar_type = "vertical"
-        )
+status.register("cpu_usage_bar", bar_type = "vertical")
 
-status.register("cpu_usage",
-                format='  {usage:02.0f}%')
-                #critical_limit=4,
-                #critical_color=COLOR_RED)
-
+status.register("cpu_usage", format='  {usage:02.0f}%')
 
 # Display memory
-status.register('mem', format='  {percent_used_mem}%', color=COLOR_NORMAL,)
-
-# Shows disk usage of /
-# Format:
-# 42/128G [86G]
-status.register("disk",
-    path="/",
-    format=" {avail}G",)
-
-if not isLaptop:
-    status.register("disk",
-            path="/home",
-            format=" {avail}G"
-    )
-
-status.register("mpd",
-        format = " {status} {artist} - {title} ({album}) {song_elapsed}/{song_length}",
-        host = "localhost",
-        port = 6600,
-        max_len = 50
-        )
+status.register('mem', format='  {percent_used_mem}%')
 
 status.register("updates",
         format = " {count}",
         format_no_updates = "",
         backends = [pacman.Pacman(), cower.Cower()])
 
-status.register("weather",
-                format="{icon} {current_temp}{temp_unit} ({low_temp}-{high_temp})  {humidity}",
-                colorize=True,
-                interval=120,
-                backend=weathercom.Weathercom(
-                    location_code="PLXX0029:1:PL",
-                            ),
-                    )
+
+status.register("mpd",
+        format = " {status} {artist} - {title} {song_elapsed}/{song_length}",
+        host = "localhost",
+        port = 6600,
+        max_len = 50
+        )
 
 if isLaptop:
     status.register("file",
