@@ -47,14 +47,6 @@ call dein#add('itchyny/lightline.vim')
     endfunction
 
 
-" buffer display list (inegrated with airline)
-"call dein#add('bling/vim-bufferline')
-" autoformat code using externals tools
-call dein#add('Chiel92/vim-autoformat')
-    " vim autoformat settings
-    let g:formatprg_cs="astyle"
-    let g:formatprg_args_cs="--indent=spaces=4 --suffix=none --unpad-paren --pad-oper --break-closing-brackets  --indent-labels --indent-cases --convert-tabs --indent-col1-comments --indent-preprocessor \"{}\" ;"
-
 " ack (programmers grep) plugin
 call dein#add('mileszs/ack.vim')
     "ack using ag
@@ -66,20 +58,18 @@ call dein#add('mileszs/ack.vim')
 call dein#add('unite.vim')
 " vimproc a luncher
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-" shell implementation inside vim
-call dein#add('Shougo/vimshell.vim')
 
 " improved cpp coloring
 call dein#add('octol/vim-cpp-enhanced-highlight')
 
 " autocompletion
-call dein#add('vim-scripts/OmniCppComplete')
-    set completeopt=longest,menuone
-    "omnicpp config
-    set nocp
-    let OmniCpp_ShowAccess=1
-    let OmniCpp_ShowPrototypeInAbbr=1
-    "create ctags for omnicpp
+"call dein#add('vim-scripts/OmniCppComplete')
+"    set completeopt=longest,menuone
+"    "omnicpp config
+"    set nocp
+"    let OmniCpp_ShowAccess=1
+"    let OmniCpp_ShowPrototypeInAbbr=1
+"    "create ctags for omnicpp
     nnoremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "Vim git support
@@ -108,28 +98,6 @@ call dein#add('airblade/vim-gitgutter')
 "syntax asynchronous checker
 call dein#add('w0rp/ale')
 
-"sending commands to the tmux split
-call dein#add('benmills/vimux')
-
-"project configuration
-call dein#add('tpope/vim-projectionist')
-    let g:projectionist_heuristics = {
-      \   "*.cpp": {
-      \     "alternate": "{}.hpp",
-      \     "type": "source"
-      \   },
-      \   "*.hpp": {
-      \     "alternate": "{}.cpp",
-      \     "type": "header"
-      \   },
-      \ }
-
-"support for rust lang
-call dein#add('wting/rust.vim')
-
-"bar of interpreted tags from ctags
-call dein#add('majutsushi/tagbar')
-
 "snippets manager
 call dein#add('SirVer/ultisnips')
 
@@ -145,7 +113,7 @@ call dein#add('SirVer/ultisnips')
     let g:UltiSnipsEditSplit="vertical"
 
 "better support for Markdown fils
-call dein#add('plasticboy/vim-markdown')
+"call dein#add('plasticboy/vim-markdown')
 
 "
 " Required:
