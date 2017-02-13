@@ -10,4 +10,5 @@ echo -e "Writing software is more fun than working.\n\t-- Author Unknown"
 
 #random quote
 fortune -a
+echo -e
 echo -e "\n"
