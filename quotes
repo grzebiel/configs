@@ -7,8 +7,10 @@ echo -e "Arguing that you don't care about the right to privacy because you have
 echo -e "It's certainly easier to implement bad security and make it illegal for anyone to notice than it is to implement good security. \n\t-- Bruce Schneier"
 echo -e "Nothing is more dangerous than an idea, when you have only one idea.\n\t-- Emile Chartier"
 echo -e "Writing software is more fun than working.\n\t-- Author Unknown"
+echo -e "The innovation the industry talks about so much is bullshit (...) Anybody can innovate. Don't do this big 'think different'... screw that. It's meaningless. Ninety-nine per cent of it is get the work done.\n\t-- Linus Torvalds"
 
 #random quote
 fortune -a
 echo -e
 echo -e "\n"
+
