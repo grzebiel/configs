@@ -1,4 +1,5 @@
-
+#NOTE
+this is obsolete right now. kept as history backup. for up to date configs see [grzebiel/dotfiles](https://github.com/grzebiel/dotfiles)
 # configs
 
 ## files locations
